@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Tickets</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>Ticketing App</h2>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Tableau de bord</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="tickets.html" class="active">Tickets</a></li>
+            </ul>
+        </nav>
+        <div class="user-info">
+            <p>Connecté : Ilan Rubaud</p>
+        </div>
+    </aside>
+
+    <main class="content">
+        <header>
+            <h1>Tous les tickets</h1>
+            <a href="ticket-new.html" class="btn">+ Nouveau Ticket</a>
+        </header>
+
+        <div class="card">
+            <div style="margin-bottom: 20px;">
+                <select style="width: 200px; display: inline-block;">
+                    <option>Tous les projets</option>
+                    <option>Site E-commerce</option>
+                </select>
+                <select style="width: 200px; display: inline-block;">
+                    <option>Tous les statuts</option>
+                    <option>En cours</option>
+                </select>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Titre</th>
+                        <th>Projet</th>
+                        <th>Type</th>
+                        <th>Statut</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#104</td>
+                        <td>Erreur 500 au paiement</td>
+                        <td>Site E-commerce</td>
+                        <td><span class="badge type-included">Inclus</span></td>
+                        <td><span class="badge status-progress">En cours</span></td>
+                        <td><a href="ticket-detail.html">Voir</a></td>
+                    </tr>
+                    <tr>
+                        <td>#105</td>
+                        <td>Dév nouvelle feature PDF</td>
+                        <td>CRM Intranet</td>
+                        <td><span class="badge type-billable">Facturable</span></td>
+                        <td><span class="badge status-new">À valider</span></td>
+                        <td><a href="ticket-detail.html">Voir</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

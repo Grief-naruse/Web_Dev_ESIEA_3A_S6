@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail Ticket #105</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>Ticketing App</h2>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Tableau de bord</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="tickets.html" class="active">Tickets</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <a href="tickets.html" style="text-decoration: none; color: #7f8c8d;">← Retour à la liste</a>
+        <header style="margin-top: 20px;">
+            <h1>#105 - Dév nouvelle feature PDF</h1>
+            <div>
+                <span class="badge type-billable">Facturable</span>
+                <span class="badge status-new">À valider</span>
+            </div>
+        </header>
+
+        <div class="grid-2">
+            <div>
+                <article class="card">
+                    <h3>Description</h3>
+                    <p>Le client souhaite pouvoir exporter les fiches contacts au format PDF avec le logo de l'entreprise en entête.</p>
+                </article>
+
+                <article class="card">
+                    <h3>Historique / Commentaires</h3>
+                    <div style="border-left: 3px solid #ddd; padding-left: 10px; margin-bottom: 15px;">
+                        <strong>Ilan Rubaud</strong> <small>28/01/2026 10:00</small>
+                        <p>Ticket créé. En attente de validation du devis par le client.</p>
+                    </div>
+                    <textarea placeholder="Ajouter un commentaire..." rows="3"></textarea>
+                    <button class="btn" style="margin-top: 10px;">Envoyer</button>
+                </article>
+            </div>
+
+            <div>
+                <aside class="card">
+                    <h3>Informations</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 10px;"><strong>Client :</strong> Assurance Plus</li>
+                        <li style="margin-bottom: 10px;"><strong>Projet :</strong> CRM Intranet</li>
+                        <li style="margin-bottom: 10px;"><strong>Priorité :</strong> Moyenne</li>
+                        <li style="margin-bottom: 10px;"><strong>Assigné à :</strong> Ilan Rubaud</li>
+                    </ul>
+                    <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
+                    <h3>Suivi Temps</h3>
+                    <p>Estimé : <strong>4h</strong></p>
+                    <p>Réel : <strong>0h</strong></p>
+                    
+                    <div style="margin-top: 20px; text-align: center;">
+                        <button class="btn" style="background-color: var(--success-color);">Valider (Client)</button>
+                        <button class="btn" style="background-color: var(--danger-color); margin-top: 10px;">Refuser</button>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>Ticketing App</h2>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html" class="active">Tableau de bord</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="tickets.html">Tickets</a></li>
+            </ul>
+        </nav>
+        <div class="user-info">
+            <p>Connecté en tant que :</p>
+            <strong>Ilan Rubaud</strong><br>
+            <a href="index.html" style="color: #bdc3c7; font-size: 0.8rem;">Déconnexion</a>
+        </div>
+    </aside>
+
+    <main class="content">
+        <header>
+            <h1>Tableau de bord</h1>
+            <a href="ticket-new.html" class="btn">+ Nouveau Ticket</a>
+        </header>
+
+        <section class="grid-3">
+            <div class="card">
+                <h3>Tickets en cours</h3>
+                <p style="font-size: 2rem; font-weight: bold; color: var(--accent-color);">12</p>
+            </div>
+            <div class="card">
+                <h3>À valider (Client)</h3>
+                <p style="font-size: 2rem; font-weight: bold; color: var(--warning-color);">3</p>
+            </div>
+            <div class="card">
+                <h3>Heures ce mois</h3>
+                <p style="font-size: 2rem; font-weight: bold;">34h</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Derniers tickets mis à jour</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Projet</th>
+                        <th>Titre</th>
+                        <th>Statut</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Site E-commerce</td>
+                        <td>Bug panier</td>
+                        <td><span class="badge status-progress">En cours</span></td>
+                        <td>28/01/2026</td>
+                    </tr>
+                    <tr>
+                        <td>CRM Interne</td>
+                        <td>Ajout utilisateur</td>
+                        <td><span class="badge status-new">Nouveau</span></td>
+                        <td>27/01/2026</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
