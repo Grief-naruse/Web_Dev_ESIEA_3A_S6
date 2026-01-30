@@ -100,7 +100,16 @@ th { background-color: #f8f9fa; font-weight: 600; }
 tr:hover { background-color: #f1f1f1; }
 
 /* --- Components: Badges --- */
-.badge { padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; color: #fff; }
+.badge { 
+    padding: 5px 10px; 
+    border-radius: 20px; 
+    font-size: 0.8rem; 
+    color: #fff;
+    white-space: nowrap;      /* Interdit au texte de passer à la ligne */
+    display: inline-block;    /* Permet au badge de garder sa forme bloc */
+    min-width: 80px;          /* (Optionnel) Force une largeur mini pour uniformiser */
+    text-align: center;       /* Centre le texte si on met une largeur mini */
+}
 .badge.status-new { background-color: var(--accent-color); }
 .badge.status-progress { background-color: #9b59b6; }
 .badge.type-included { background-color: var(--success-color); }
@@ -127,9 +136,79 @@ button, .btn {
 button:hover, .btn:hover { background-color: #2980b9; }
 
 /* --- Responsive --- */
+/* css/style.css - Partie Responsive */
+
 @media (max-width: 768px) {
+    /* 1. Passage en colonne de la structure principale */
     body { flex-direction: column; }
     aside.sidebar { width: 100%; height: auto; position: relative; }
-    main.content { margin-left: 0; width: 100%; padding: 20px; }
+    main.content { margin-left: 0; width: 100%; padding: 15px; } /* Marges réduites */
+    
     .grid-3, .grid-2 { grid-template-columns: 1fr; }
+
+    /* 2. Transformation du TABLEAU en CARTES */
+    
+    /* On cache l'entête du tableau (les titres des colonnes) car ils ne s'alignent plus */
+    table thead {
+        display: none; 
+    }
+
+    /* On force le tableau et ses composants à se comporter comme des blocs */
+    table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+    }
+
+    /* Chaque ligne devient une "Carte" */
+    table tr {
+        background: #fff;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    /* Chaque cellule devient une ligne dans la carte */
+    table td {
+        padding: 5px 0;
+        text-align: left; /* On aligne tout à gauche */
+        border-bottom: none; /* On retire les lignes grises du tableau classique */
+        display: flex;       /* Pour aligner label et contenu si besoin */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* --- OPTIONNEL : Style spécifique pour rendre ça joli --- */
+    
+    /* Le Titre (2ème colonne) en plus gros et gras */
+    table td:nth-child(2) {
+        font-weight: bold;
+        font-size: 1.1rem;
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+
+    /* L'ID (1ère colonne) en gris discret */
+    table td:nth-child(1) {
+        color: #7f8c8d;
+        font-size: 0.85rem;
+        margin-bottom: 5px;
+    }
+
+    /* Le bouton 'Voir' (Dernière colonne) prend toute la largeur pour être facile à cliquer */
+    table td:last-child {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+    }
+    table td:last-child a {
+        display: block;
+        text-align: center;
+        background-color: var(--accent-color);
+        color: white;
+        padding: 8px;
+        border-radius: 4px;
+        text-decoration: none;
+    }
 }
