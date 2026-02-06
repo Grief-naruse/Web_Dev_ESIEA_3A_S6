@@ -3,84 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détail Projet - Site E-commerce</title>
+    <title>Détail Projet</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <aside class="sidebar">
-    <h2>Ticketing App</h2>
-    <nav>
-        <ul>
-            <li><a href="dashboard.html">Tableau de bord</a></li>
-            <li><a href="projects.html">Projets</a></li>
-            <li><a href="tickets.html">Tickets</a></li>
-            <li><a href="settings.html">Paramètres</a></li>
-        </ul>
-    </nav>
-    
-    <div class="user-info">
-        <p style="margin-bottom: 5px; font-size: 0.8rem; opacity: 0.7;">Connecté en tant que :</p>
-        <a href="profile.html" style="color: white; font-weight: bold; text-decoration: none; display: flex; align-items: center;">
-            <div style="width: 24px; height: 24px; background: #fff; color: var(--primary-color); border-radius: 50%; margin-right: 8px; display:flex; justify-content:center; align-items:center; font-size:0.7rem;">IR</div>
-            Ilan Rubaud
-        </a>
-        <div style="margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px;">
-            <a href="index.html" style="color: #bdc3c7; font-size: 0.8rem; text-decoration: none;">➜ Déconnexion</a>
+        <h2>Ticketing App</h2>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Tableau de bord</a></li>
+                <li><a href="projects.html" class="active">Projets</a></li>
+                <li><a href="tickets.html">Tickets</a></li>
+                <li><a href="settings.html">Paramètres</a></li>
+            </ul>
+        </nav>
+        <div class="user-info">
+             <p style="margin-bottom: 5px; font-size: 0.8rem; opacity: 0.7;">Connecté en tant que :</p>
+             <a href="profile.html" style="color: white; font-weight: bold; text-decoration: none;">Ilan Rubaud</a>
+             <div style="margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px;">
+                <a href="index.html" style="color: #bdc3c7; font-size: 0.8rem; text-decoration: none;">➜ Déconnexion</a>
+            </div>
         </div>
-    </div>
-</aside>
+    </aside>
 
     <main class="content">
         <a href="projects.html" style="text-decoration: none; color: #7f8c8d;">← Retour aux projets</a>
         
-        <header style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <header style="margin-top: 20px;">
             <div>
                 <h1>Refonte Site E-commerce</h1>
                 <p style="color: #666;">Client : <strong>Boutique Mode SA</strong></p>
             </div>
-            <a href="project-new.html" class="btn" style="background-color: #7f8c8d;">Modifier le projet</a>
         </header>
 
         <section class="grid-2">
             <div class="card">
                 <h3>Suivi du Contrat</h3>
                 <p><strong>Type :</strong> Maintenance (50h / an)</p>
-                <p><strong>Validité :</strong> 01/01/2026 - 31/12/2026</p>
-                
-                <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
-                
-                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>Consommé : <strong>12h</strong></span>
-                    <span>Restant : <strong style="color: var(--success-color);">38h</strong></span>
+                <div style="background: #eee; height: 15px; border-radius: 10px; margin-top: 10px;">
+                    <div style="background: var(--accent-color); width: 24%; height: 100%; border-radius: 10px;"></div>
                 </div>
-                <div style="background: #eee; height: 15px; border-radius: 10px; overflow: hidden;">
-                    <div style="background: var(--accent-color); width: 24%; height: 100%;"></div>
-                </div>
+                <p style="margin-top: 5px; font-size: 0.9rem;">12h consommées / 38h restantes</p>
             </div>
-
+            
             <div class="card">
-                <h3>Équipe assignée</h3>
-                <ul style="list-style: none; margin-top: 10px;">
-                    <li style="margin-bottom: 10px; display: flex; align-items: center;">
-                        <div style="width: 30px; height: 30px; background: #34495e; border-radius: 50%; margin-right: 10px;"></div>
-                        Ilan Rubaud (Dev)
-                    </li>
-                    <li style="margin-bottom: 10px; display: flex; align-items: center;">
-                        <div style="width: 30px; height: 30px; background: #95a5a6; border-radius: 50%; margin-right: 10px;"></div>
-                        Sophie Martin (Chef de projet)
-                    </li>
-                </ul>
+                <h3>Équipe</h3>
+                <p>Ilan Rubaud, Sophie Martin</p>
             </div>
         </section>
 
         <section class="card">
-            <h3>Derniers tickets du projet</h3>
+            <h3>Tickets du projet</h3>
             <table>
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Titre</th>
-                        <th>Type</th>
                         <th>Statut</th>
                         <th>Action</th>
                     </tr>
@@ -89,7 +67,6 @@
                     <tr>
                         <td>#104</td>
                         <td>Erreur 500 au paiement</td>
-                        <td><span class="badge type-included">Inclus</span></td>
                         <td><span class="badge status-progress">En cours</span></td>
                         <td><a href="ticket-detail.html">Voir</a></td>
                     </tr>

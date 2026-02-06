@@ -180,6 +180,8 @@ tr:hover {
 .badge.status-progress { background-color: #9b59b6; } /* Violet */
 .badge.type-included   { background-color: var(--success-color); }
 .badge.type-billable   { background-color: var(--warning-color); }
+.badge.status-done     { background-color: var(--success-color); } /* Vert */
+.badge.status-refused  { background-color: var(--danger-color); }  /* Rouge */
 
 /* --- Formulaires --- */
 .form-group {

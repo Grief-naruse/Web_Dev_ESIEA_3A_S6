@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 4. PAGES LISTES (Tickets & Projets) : Filtres de recherche
     // ============================================================
     
-    // Filtre Tickets (Déjà vu)
+    // Filtre Tickets
     const filterProject = document.getElementById('filter-project');
     const filterStatus = document.getElementById('filter-status');
     
@@ -180,8 +180,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if(filterStatus) filterStatus.addEventListener('change', filterTickets);
     }
 
-    // NOUVEAU : Barre de recherche Projets
-    const projectSearch = document.getElementById('project-search'); // ID à ajouter sur projects.html
+    // Barre de recherche Projets
+    const projectSearch = document.getElementById('project-search'); 
     
     if (projectSearch) {
         const projectCards = document.querySelectorAll('.card h3'); // On cherche les titres des cartes
@@ -190,12 +190,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const term = e.target.value.toLowerCase();
             
             projectCards.forEach(title => {
-                // On remonte au parent (.card) pour le cacher/montrer
-                // Structure: article.card > h3
                 const card = title.closest('.card'); 
                 
                 if (title.innerText.toLowerCase().includes(term)) {
-                    card.style.display = 'block'; // Ou 'flex' selon ton CSS, block est sûr pour une carte
+                    card.style.display = 'block'; 
                 } else {
                     card.style.display = 'none';
                 }
@@ -213,7 +211,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!form) return;
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            // Cherche des champs qui contiennent "password" dans leur ID ou name
             const passInputs = form.querySelectorAll('input[type="password"]');
             
             // On suppose que les 2 derniers sont "Nouveau" et "Confirmer"
@@ -234,5 +231,67 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     validatePasswords(registerForm, 'index.html');
-    validatePasswords(passwordForm); // Pas de redirection pour le profil, on reste là
+    validatePasswords(passwordForm); 
+
+    // ============================================================
+    // 6. DETAIL TICKET : Chronomètre depuis création
+    // ============================================================
+    const creationSpan = document.getElementById('ticket-creation-date');
+    const timerDisplay = document.getElementById('live-timer');
+
+    if (creationSpan && timerDisplay) {
+        // 1. On récupère la date exacte stockée dans l'attribut data-created
+        const creationDate = new Date(creationSpan.getAttribute('data-created')).getTime();
+
+        // 2. Fonction qui calcule et affiche la différence
+        function updateTimer() {
+            const now = new Date().getTime(); // Heure actuelle
+            const distance = now - creationDate; // Différence en millisecondes
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Affichage propre (on ajoute un 0 devant si < 10, ex: 09s)
+            const hDisplay = hours < 10 ? "0" + hours : hours;
+            const mDisplay = minutes < 10 ? "0" + minutes : minutes;
+            const sDisplay = seconds < 10 ? "0" + seconds : seconds;
+
+            // Injection du texte dans le HTML
+            if (days > 0) {
+                timerDisplay.innerText = `${days}j ${hDisplay}h ${mDisplay}m ${sDisplay}s`;
+            } else {
+                timerDisplay.innerText = `${hDisplay}h ${mDisplay}m ${sDisplay}s`;
+            }
+        }
+
+        // 3. On lance la fonction tout de suite
+        updateTimer();
+
+        // 4. On relance la fonction toutes les 1000ms (1 seconde)
+        setInterval(updateTimer, 1000);
+    }
+
+    // ============================================================
+    // 7. DETAIL TICKET : Changement dynamique de statut
+    // ============================================================
+    const statusSelect = document.getElementById('status-select');
+
+    if (statusSelect) {
+        statusSelect.addEventListener('change', function() {
+            // 1. On récupère la valeur choisie (ex: "status-progress")
+            const newClass = this.value;
+
+            // 2. On enlève toutes les anciennes classes de couleur
+            this.classList.remove('status-new', 'status-progress', 'status-done', 'status-refused');
+
+            // 3. On ajoute la nouvelle classe pour changer la couleur de fond
+            this.classList.add(newClass);
+
+            // 4. Petit feedback visuel
+            showNotification(`🔄 Statut modifié vers : ${this.options[this.selectedIndex].text}`, "success", this.closest('main'));
+        });
+    }
+
 });
