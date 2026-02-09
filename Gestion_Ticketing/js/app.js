@@ -273,25 +273,4 @@ document.addEventListener('DOMContentLoaded', function() {
         setInterval(updateTimer, 1000);
     }
 
-    // ============================================================
-    // 7. DETAIL TICKET : Changement dynamique de statut
-    // ============================================================
-    const statusSelect = document.getElementById('status-select');
-
-    if (statusSelect) {
-        statusSelect.addEventListener('change', function() {
-            // 1. On récupère la valeur choisie (ex: "status-progress")
-            const newClass = this.value;
-
-            // 2. On enlève toutes les anciennes classes de couleur
-            this.classList.remove('status-new', 'status-progress', 'status-done', 'status-refused');
-
-            // 3. On ajoute la nouvelle classe pour changer la couleur de fond
-            this.classList.add(newClass);
-
-            // 4. Petit feedback visuel
-            showNotification(`🔄 Statut modifié vers : ${this.options[this.selectedIndex].text}`, "success", this.closest('main'));
-        });
-    }
-
 });
